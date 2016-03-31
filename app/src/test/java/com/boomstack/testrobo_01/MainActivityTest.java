@@ -19,20 +19,22 @@ import org.robolectric.shadows.ShadowTextView;
 import org.robolectric.util.ActivityController;
 
 /**
- * Created by bjhl on 16/3/31.
+ * Created by wangkangfei on 16/3/31.
  */
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
+@Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP, shadows = {CustomShadowTextView.class})
 public class MainActivityTest {
     private MainActivity mainActivity;
     private TextView tv;
     private Button btn;
+    private MyTextView mtv;
 
     @Before
     public void setUp() {
         mainActivity = Robolectric.setupActivity(MainActivity.class);
         tv = (TextView) mainActivity.findViewById(R.id.tv);
         btn = (Button) mainActivity.findViewById(R.id.btn);
+        mtv = (MyTextView) mainActivity.findViewById(R.id.tv_my);
     }
 
     @Test
@@ -78,5 +80,10 @@ public class MainActivityTest {
         Assert.assertEquals("Hello World!", innerText);
     }
 
-
+    @Test
+    public void testCustomTextView() {
+        ShadowTextView sv = Shadows.shadowOf(mtv);
+        CustomShadowTextView cstv = (CustomShadowTextView) sv;
+        Assert.assertEquals("mytextview", cstv.innerText());
+    }
 }

@@ -21,4 +21,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv"
         android:text="button" />
+
+    <com.boomstack.testrobo_01.MyTextView
+        android:id="@+id/tv_my"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btn"
+        android:text="mytextview"
+        android:textSize="50sp" />
 </RelativeLayout>

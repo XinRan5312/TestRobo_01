@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TestRobo_01</string>
     <string name="title_activity_other">OtherActivity</string>
+    <string name="title_activity_third">ThirdActivity</string>
 </resources>

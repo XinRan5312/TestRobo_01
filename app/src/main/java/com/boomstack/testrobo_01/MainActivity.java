@@ -10,6 +10,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     TextView tv;
     Button btn;
+    TextView myTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tv.setText("Hola");
+            }
+        });
+        myTv = (TextView) findViewById(R.id.tv_my);
+        myTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent();
+                i.setClass(MainActivity.this, ThirdActivity.class);
+                startActivity(i);
             }
         });
     }

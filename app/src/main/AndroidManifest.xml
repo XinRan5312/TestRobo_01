@@ -18,6 +18,10 @@
         <activity
             android:name=".OtherActivity"
             android:label="@string/title_activity_other"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ThirdActivity"
+            android:label="@string/title_activity_third"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
