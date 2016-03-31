@@ -15,6 +15,7 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.Shadows;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
+import org.robolectric.shadows.ShadowTextView;
 import org.robolectric.util.ActivityController;
 
 /**
@@ -68,7 +69,13 @@ public class MainActivityTest {
         ShadowActivity shadowActivity = Shadows.shadowOf(mainActivity);
         Intent actualIntent = shadowActivity.getNextStartedActivity();
         Assert.assertEquals(exceptedIntent, actualIntent);
+    }
 
+    @Test
+    public void testTextView() {
+        ShadowTextView stv = Shadows.shadowOf(tv);
+        String innerText = stv.innerText();
+        Assert.assertEquals("Hello World!", innerText);
     }
 
 
